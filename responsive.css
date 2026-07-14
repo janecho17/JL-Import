@@ -1,0 +1,35 @@
+/* ============================================================
+   JL-IMPORT — Responsive
+   ============================================================ */
+
+@media (max-width: 960px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__ruta { display: none; }
+  .producto-detalle { grid-template-columns: 1fr; }
+  .carrito-layout { grid-template-columns: 1fr; }
+  .carrito-resumen { position: static; }
+  .perfil-layout { grid-template-columns: 1fr; }
+  .form-admin__fila { grid-template-columns: 1fr; }
+  .variante-editor__campos { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card--ancho { grid-column: span 2; }
+
+  .admin-shell { grid-template-columns: 1fr; }
+  .admin-sidebar { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .admin-tabs { flex-direction: row; flex-wrap: wrap; }
+  .admin-main { padding: 24px 18px; }
+}
+
+@media (max-width: 640px) {
+  .site-header__inner { flex-wrap: wrap; height: auto; padding: 12px 0; gap: 10px; }
+  .nav-principal { gap: 12px; flex-wrap: wrap; }
+  .hero__texto h1 { font-size: 2rem; }
+  .seccion { padding: 32px 16px; }
+  .contenedor { padding: 0 16px; }
+  .carrito-item { grid-template-columns: 56px 1fr; grid-template-rows: auto auto; }
+  .carrito-item__cantidad, .carrito-item__eliminar { grid-column: 2; justify-self: start; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-card--ancho { grid-column: span 1; }
+  .variante-editor__campos { grid-template-columns: 1fr; }
+  .specs-editor { grid-template-columns: 1fr; }
+}
