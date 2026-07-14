@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedidos · Panel JL-IMPORT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="body-admin">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a href="index.html" class="logo">JL<span>-IMPORT</span></a>
+    <nav class="admin-tabs">
+      <a href="dashboard.html" class="admin-tabs__btn admin-tabs__btn--link">Productos</a>
+      <a href="dashboard.html" class="admin-tabs__btn admin-tabs__btn--link">Categorías</a>
+      <a href="dashboard.html" class="admin-tabs__btn admin-tabs__btn--link">Marcas</a>
+      <a href="dashboard.html" class="admin-tabs__btn admin-tabs__btn--link">Clientes</a>
+      <span class="admin-tabs__btn activa">Pedidos</span>
+      <a href="dashboard.html" class="admin-tabs__btn admin-tabs__btn--link">Estadísticas</a>
+      <a href="dashboard.html" class="admin-tabs__btn admin-tabs__btn--link">Configuración</a>
+    </nav>
+    <a href="index.html" class="admin-sidebar__salir">← Volver a la tienda</a>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1>Pedidos</h1>
+      <select data-filtro-estado>
+        <option value="">Todos los estados</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="procesando">Procesando</option>
+        <option value="enviado">Enviado</option>
+        <option value="entregado">Entregado</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+    </header>
+
+    <section class="admin-panel activo" data-pedidos-admin>
+      <p class="texto-vacio">Cargando pedidos...</p>
+    </section>
+  </main>
+</div>
+
+<script type="module" src="js/pedidos.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ingresar · JL-IMPORT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="body-auth">
+
+<main class="auth-card">
+  <a href="index.html" class="logo logo--centro">JL<span>-IMPORT</span></a>
+  <h1>Ingresa a tu cuenta</h1>
+  <form id="form-login" class="form-auth">
+    <label for="correo">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" required autocomplete="email">
+
+    <label for="clave">Contraseña</label>
+    <input type="password" id="clave" name="clave" required autocomplete="current-password">
+
+    <button type="button" class="link-boton" data-reset-pass>¿Olvidaste tu contraseña?</button>
+
+    <button type="submit" class="btn btn--primario btn--ancho">Ingresar</button>
+  </form>
+  <p class="auth-card__pie">¿No tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
+</main>
+
+<script type="module" src="js/login.js"></script>
+</body>
+</html>

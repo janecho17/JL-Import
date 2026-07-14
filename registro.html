@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear cuenta · JL-IMPORT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="body-auth">
+
+<main class="auth-card">
+  <a href="index.html" class="logo logo--centro">JL<span>-IMPORT</span></a>
+  <h1>Crea tu cuenta</h1>
+  <form id="form-registro" class="form-auth">
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" required autocomplete="name">
+
+    <label for="telefono">Teléfono / WhatsApp</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="9XXXXXXXX" required autocomplete="tel">
+
+    <label for="correo">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" required autocomplete="email">
+
+    <label for="clave">Contraseña</label>
+    <input type="password" id="clave" name="clave" required minlength="6" autocomplete="new-password">
+
+    <label for="clave2">Repetir contraseña</label>
+    <input type="password" id="clave2" name="clave2" required minlength="6" autocomplete="new-password">
+
+    <button type="submit" class="btn btn--primario btn--ancho">Crear cuenta</button>
+  </form>
+  <p class="auth-card__pie">¿Ya tienes cuenta? <a href="login.html">Ingresar</a></p>
+</main>
+
+<script type="module" src="js/registro.js"></script>
+</body>
+</html>

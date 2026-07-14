@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu carrito · JL-IMPORT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="contenedor site-header__inner">
+    <a href="index.html" class="logo">JL<span>-IMPORT</span></a>
+    <nav class="nav-principal">
+      <a href="index.html" class="nav-link">Tienda</a>
+      <a href="carrito.html" class="nav-link nav-link--carrito nav-link--activo">
+        Carrito <span class="carrito-count" data-carrito-count>0</span>
+      </a>
+      <a href="dashboard.html" class="nav-link nav-link--admin" data-admin-link style="display:none">Admin</a>
+      <span data-auth-area class="auth-area"></span>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor seccion">
+  <h1 class="seccion__titulo">Tu carrito</h1>
+  <div class="carrito-layout">
+    <div class="carrito-lista" data-carrito-lista></div>
+    <aside class="carrito-resumen">
+      <h2>Resumen</h2>
+      <div class="carrito-resumen__linea">
+        <span>Total</span>
+        <strong data-carrito-total>S/ 0.00</strong>
+      </div>
+      <button class="btn btn--primario btn--ancho" data-checkout disabled>Finalizar pedido</button>
+      <p class="carrito-resumen__nota">Al finalizar, coordinaremos la entrega por WhatsApp.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="contenedor site-footer__inner">
+    <div>
+      <span class="logo">JL<span>-IMPORT</span></span>
+      <p>Importaciones directas para el Perú.</p>
+    </div>
+    <div>
+      <p>WhatsApp: +51 922 564 745</p>
+      <p>Correo: jlimport17@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/carrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de administración · JL-IMPORT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="body-admin">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <a href="index.html" class="logo">JL<span>-IMPORT</span></a>
+    <nav class="admin-tabs">
+      <button class="admin-tabs__btn activa" data-tab-btn="productos">Productos</button>
+      <button class="admin-tabs__btn" data-tab-btn="categorias">Categorías</button>
+      <button class="admin-tabs__btn" data-tab-btn="marcas">Marcas</button>
+      <button class="admin-tabs__btn" data-tab-btn="clientes">Clientes</button>
+      <a href="pedidos.html" class="admin-tabs__btn admin-tabs__btn--link">Pedidos</a>
+      <button class="admin-tabs__btn" data-tab-btn="estadisticas">Estadísticas</button>
+      <button class="admin-tabs__btn" data-tab-btn="configuracion">Configuración</button>
+    </nav>
+    <a href="index.html" class="admin-sidebar__salir">← Volver a la tienda</a>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1>Panel de administración</h1>
+      <span data-admin-correo class="admin-topbar__correo"></span>
+    </header>
+
+    <!-- PRODUCTOS -->
+    <section class="admin-panel activo" data-tab-panel="productos">
+      <h2>Nuevo producto</h2>
+      <form id="form-producto" class="form-admin">
+        <div class="form-admin__fila">
+          <div>
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
+          </div>
+          <div>
+            <label>Categoría</label>
+            <select name="categoriaId" data-select-categoria-producto required></select>
+          </div>
+          <div>
+            <label>Marca</label>
+            <select name="marcaId" data-select-marca-producto required></select>
+          </div>
+        </div>
+
+        <label>Descripción</label>
+        <textarea name="descripcion" rows="3"></textarea>
+
+        <div class="form-admin__fila">
+          <div>
+            <label>Precio (S/)</label>
+            <input type="number" step="0.01" name="precio" required>
+          </div>
+          <div>
+            <label>Precio de oferta (S/, opcional)</label>
+            <input type="number" step="0.01" name="precioOferta">
+          </div>
+          <div class="form-admin__check">
+            <label><input type="checkbox" name="destacado"> Producto destacado</label>
+          </div>
+        </div>
+
+        <label>Imagen principal</label>
+        <input type="file" name="imagenPrincipal" accept="image/*">
+
+        <h3>Especificaciones</h3>
+        <div class="specs-editor">
+          <input type="text" placeholder="Ej: Procesador" data-spec-clave>
+          <input type="text" placeholder="Ej: Snapdragon 8 Gen 3" data-spec-valor>
+        </div>
+        <div class="specs-editor">
+          <input type="text" placeholder="Ej: Pantalla" data-spec-clave>
+          <input type="text" placeholder="Ej: 6.7'' AMOLED" data-spec-valor>
+        </div>
+        <div class="specs-editor">
+          <input type="text" placeholder="Ej: Batería" data-spec-clave>
+          <input type="text" placeholder="Ej: 5000 mAh" data-spec-valor>
+        </div>
+
+        <div class="form-admin__variantes-header">
+          <h3>Variantes (color, talla, memoria, stock e imágenes)</h3>
+          <button type="button" class="btn btn--secundario" data-agregar-variante>+ Agregar variante</button>
+        </div>
+        <div class="variantes-editor" data-variantes-editor></div>
+
+        <button type="submit" class="btn btn--primario">Guardar producto</button>
+      </form>
+
+      <h2>Productos existentes</h2>
+      <table class="tabla-admin">
+        <thead>
+          <tr><th>Img</th><th>Nombre</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
+        </thead>
+        <tbody data-tabla-productos></tbody>
+      </table>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="admin-panel" data-tab-panel="categorias">
+      <h2>Nueva categoría</h2>
+      <form id="form-categoria" class="form-admin form-admin--linea">
+        <input type="text" name="nombre" placeholder="Nombre de la categoría" required>
+        <button type="submit" class="btn btn--primario">Agregar</button>
+      </form>
+      <table class="tabla-admin">
+        <thead><tr><th>Nombre</th><th>Acciones</th></tr></thead>
+        <tbody data-tabla-categorias></tbody>
+      </table>
+    </section>
+
+    <!-- MARCAS -->
+    <section class="admin-panel" data-tab-panel="marcas">
+      <h2>Nueva marca</h2>
+      <form id="form-marca" class="form-admin form-admin--linea">
+        <input type="text" name="nombre" placeholder="Nombre de la marca" required>
+        <button type="submit" class="btn btn--primario">Agregar</button>
+      </form>
+      <table class="tabla-admin">
+        <thead><tr><th>Nombre</th><th>Acciones</th></tr></thead>
+        <tbody data-tabla-marcas></tbody>
+      </table>
+    </section>
+
+    <!-- CLIENTES -->
+    <section class="admin-panel" data-tab-panel="clientes">
+      <h2>Clientes registrados</h2>
+      <table class="tabla-admin">
+        <thead><tr><th>Nombre</th><th>Correo</th><th>Teléfono</th></tr></thead>
+        <tbody data-tabla-clientes></tbody>
+      </table>
+    </section>
+
+    <!-- ESTADISTICAS -->
+    <section class="admin-panel" data-tab-panel="estadisticas">
+      <h2>Estadísticas generales</h2>
+      <div class="stats-grid" data-estadisticas></div>
+    </section>
+
+    <!-- CONFIGURACION -->
+    <section class="admin-panel" data-tab-panel="configuracion">
+      <h2>Configuración de la tienda</h2>
+      <div class="config-card">
+        <p><strong>Nombre de la tienda:</strong> JL-IMPORT</p>
+        <p><strong>WhatsApp de pedidos:</strong> +51 922 564 745</p>
+        <p><strong>Correo de contacto:</strong> jlimport17@gmail.com</p>
+        <p class="texto-vacio">Estos datos se configuran en <code>js/firebase.js</code> (objeto <code>TIENDA</code>). Las credenciales del proyecto Firebase también se configuran ahí.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

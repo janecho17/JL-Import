@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi cuenta · JL-IMPORT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="contenedor site-header__inner">
+    <a href="index.html" class="logo">JL<span>-IMPORT</span></a>
+    <nav class="nav-principal">
+      <a href="index.html" class="nav-link">Tienda</a>
+      <a href="carrito.html" class="nav-link nav-link--carrito">
+        Carrito <span class="carrito-count" data-carrito-count>0</span>
+      </a>
+      <a href="dashboard.html" class="nav-link nav-link--admin" data-admin-link style="display:none">Admin</a>
+      <span data-auth-area class="auth-area"></span>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor seccion perfil-layout">
+  <section class="perfil-columna">
+    <h1 class="seccion__titulo">Mi perfil</h1>
+    <form id="form-perfil" class="form-auth">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="telefono">Teléfono / WhatsApp</label>
+      <input type="tel" id="telefono" name="telefono">
+
+      <label for="correo">Correo electrónico</label>
+      <input type="email" id="correo" name="correo" disabled>
+
+      <button type="submit" class="btn btn--primario btn--ancho">Guardar cambios</button>
+    </form>
+    <button class="btn btn--secundario btn--ancho" data-logout-perfil>Cerrar sesión</button>
+  </section>
+
+  <section class="perfil-columna">
+    <h2 class="seccion__titulo">Historial de pedidos</h2>
+    <div data-pedidos-lista><p class="texto-vacio">Cargando pedidos...</p></div>
+
+    <h2 class="seccion__titulo">Favoritos</h2>
+    <div class="favoritos-grid" data-favoritos-lista><p class="texto-vacio">Cargando favoritos...</p></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="contenedor site-footer__inner">
+    <div>
+      <span class="logo">JL<span>-IMPORT</span></span>
+      <p>Importaciones directas para el Perú.</p>
+    </div>
+    <div>
+      <p>WhatsApp: +51 922 564 745</p>
+      <p>Correo: jlimport17@gmail.com</p>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { iniciarHeader } from "./js/usuario.js";
+  iniciarHeader();
+</script>
+<script type="module" src="js/perfil.js"></script>
+</body>
+</html>
