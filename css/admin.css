@@ -47,8 +47,9 @@
 .form-admin__variantes-header { display: flex; justify-content: space-between; align-items: center; margin: 20px 0 12px; }
 .variantes-editor { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
 .variante-editor { border: 1px dashed var(--borde); border-radius: 12px; padding: 14px; }
-.variante-editor__campos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.variante-editor__campos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .variante-editor__campos input { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--borde); }
+.variante-editor__ayuda { font-size: 12px; color: var(--texto-suave, #888); margin: 6px 0 0; }
 .variante-editor__miniaturas { display: flex; gap: 8px; margin-top: 10px; }
 .variante-editor__miniaturas img { width: 46px; height: 46px; object-fit: cover; border-radius: 6px; }
 
@@ -76,3 +77,4 @@
 .config-card { background: var(--fondo-suave); border-radius: 12px; padding: 20px; }
 .config-card p { margin: 6px 0; }
 .config-card code { background: #fff; padding: 2px 6px; border-radius: 4px; font-family: var(--fuente-mono); font-size: .85rem; }
+              
