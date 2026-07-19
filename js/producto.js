@@ -62,8 +62,13 @@ function renderizar() {
     ? varianteActual.imagenes
     : [producto.imagenPrincipal || "img/placeholder.png"];
 
-  const enOferta = producto.precioOferta && producto.precioOferta < producto.precio;
-  const precioFinal = enOferta ? producto.precioOferta : producto.precio;
+  // Precio: si la variante seleccionada tiene su propio precio, ese manda; si no, se usa el precio general.
+  const precioBase = varianteActual?.precio ?? producto.precio;
+  const precioOfertaBase = varianteActual?.precio
+    ? varianteActual?.precioOferta ?? null
+    : producto.precioOferta;
+  const enOferta = precioOfertaBase && precioOfertaBase < precioBase;
+  const precioFinal = enOferta ? precioOfertaBase : precioBase;
   const stock = varianteActual?.stock ?? 0;
 
   cont.innerHTML = `
@@ -76,7 +81,7 @@ function renderizar() {
     <div class="producto-detalle__info">
       <h1>${producto.nombre}</h1>
       <div class="producto-detalle__precio">
-        ${enOferta ? `<span class="precio-tachado">${formatearPrecio(producto.precio)}</span>` : ""}
+        ${enOferta ? `<span class="precio-tachado">${formatearPrecio(precioBase)}</span>` : ""}
         <strong>${formatearPrecio(precioFinal)}</strong>
       </div>
 
@@ -149,7 +154,11 @@ function agregarAlCarrito() {
   }
 
   const carrito = JSON.parse(localStorage.getItem("jlimport_carrito") || "[]");
-  const enOferta = producto.precioOferta && producto.precioOferta < producto.precio;
+  const precioBaseCarrito = varianteActual?.precio ?? producto.precio;
+  const precioOfertaCarrito = varianteActual?.precio
+    ? varianteActual?.precioOferta ?? null
+    : producto.precioOferta;
+  const enOferta = precioOfertaCarrito && precioOfertaCarrito < precioBaseCarrito;
   const claveVariante = JSON.stringify(varianteActual?.atributos || {});
   const idxExistente = carrito.findIndex(
     (i) => i.productoId === productoId && JSON.stringify(i.atributos) === claveVariante
@@ -163,7 +172,7 @@ function agregarAlCarrito() {
       nombre: producto.nombre,
       imagen: varianteActual?.imagenes?.[0] || producto.imagenPrincipal,
       atributos: varianteActual?.atributos || {},
-      precio: enOferta ? producto.precioOferta : producto.precio,
+      precio: enOferta ? precioOfertaCarrito : precioBaseCarrito,
       cantidad,
     });
   }
